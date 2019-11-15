@@ -5,7 +5,7 @@
 	charset=utf-8">
 	<meta name="viewport" id="viewport"
 	content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
-	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8" src="phonegap.js" src="cordova.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		 //Accelerometer content
 		 var ac;
@@ -30,7 +30,7 @@
 				 //Clear the current orientation
 				 ac.innerHTML = "";
 				 //get the current orientation
-				 navigator.accelerometer.getCurrentAcceleration(onAccelSuccess, onAccelFailure);
+				 navigator.accelerometer.watchAcceleration(onAccelSuccess, onAccelFailure);
 			} else {
 				alert("Please wait,\nPhoneGap is not ready.");
 			}
@@ -40,10 +40,10 @@
 			 //We received something from the API, so...
 			 //first get the timestamp in a date object
 			 //so we can work with it
-			 var d = new Date(accel.timestamp);
+			 var d = new Date(acceleration.timestamp);
 			 //Then replace the page's content with the
 			 //current acceleration retrieved from the API
-			 ac.innerHTML = "<b>Current acceleration</b><hr />X: " + acceleration.x + "<br />Y: " + acceleration.y + "<br />Z: " + acceleration.z + "<br />Timestamp: " + acceleration.timestamp + "<hr />Click the button to refresh.";
+			 ac.innerHTML = "<b>Current acceleration</b><hr />X: " + acceleration.x + "<br />Y: " + acceleration.y + "<br />Z: " + acceleration.z + "<br />Timestamp: " + d.toLocaleString()  + "<hr />Click the button to refresh.";
 		 }
 
 		 function onAccelFailure() {
