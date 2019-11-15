@@ -43,7 +43,7 @@
 			 var d = new Date(accel.timestamp);
 			 //Then replace the page's content with the
 			 //current acceleration retrieved from the API
-			 ac.innerHTML = "<b>Current acceleration</b><hr />X: " + accel.x + "<br />Y: " + accel.y + "<br />Z: " + accel.z + "<br />Timestamp: " + d.toLocaleString() + "<hr />Click the button to refresh.";
+			 ac.innerHTML = "<b>Current acceleration</b><hr />X: " + acceleration.x + "<br />Y: " + acceleration.y + "<br />Z: " + acceleration.z + "<br />Timestamp: " + acceleration.timestamp + "<hr />Click the button to refresh.";
 		 }
 
 		 function onAccelFailure() {
